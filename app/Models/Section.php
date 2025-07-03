@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Container extends Model
+class Section extends Model
 {
     protected $guarded = [];
     
@@ -16,8 +16,8 @@ class Container extends Model
         return $this->belongsTo(Group::class);
     }
 
-    public function pages(): HasMany
+    public function sectionPages(): HasMany
     {
-        return $this->hasMany(Page::class);
+        return $this->hasMany(SectionPage::class);
     }
 }

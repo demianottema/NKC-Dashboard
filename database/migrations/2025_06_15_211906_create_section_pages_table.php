@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('containers', function (Blueprint $table) {
+        Schema::create('section_pages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('group_id')->constrained()->cascadeOnDelete();
-            $table->string('title'); 
-            $table->text('description'); 
-            $table->string('type')->nullable(); 
+            $table->string('name');
+            $table->foreignId('section_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('containers');
+        Schema::dropIfExists('section_pages');
     }
 };

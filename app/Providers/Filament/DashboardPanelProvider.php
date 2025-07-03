@@ -10,6 +10,7 @@ use Filament\Support\Colors\Color;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Filament\Http\Middleware\Authenticate;
+use App\Http\Middleware\FilamentGroupRedirect;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -27,13 +28,16 @@ class DashboardPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('dashboard')
-            ->path('app')
+            ->path('')
             ->login()
+            ->topNavigation()
+            ->viteTheme('resources/css/filament/dashboard/theme.css')
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => '#B70008',
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
+            ->discoverClusters(in: app_path('Filament/Clusters'), for: 'App\Filament\Clusters')
             ->pages([
                 Dashboard::class,
             ])
@@ -52,6 +56,7 @@ class DashboardPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                // FilamentGroupRedirect::class,
             ])
             ->authMiddleware([
                 Authenticate::class,

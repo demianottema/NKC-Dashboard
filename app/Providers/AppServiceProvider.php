@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Filament\Auth\Http\Responses\Contracts\LoginResponse as LoginResponseContract;
 
 class AppServiceProvider extends ServiceProvider
 {

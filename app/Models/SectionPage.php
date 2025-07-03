@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class ContainerPage extends Model
+class SectionPage extends Model
 {
-    public function container(): BelongsTo
+    public function section(): BelongsTo
     {
-        return $this->belongsTo(Container::class);
+        return $this->belongsTo(Section::class);
     }
 }
