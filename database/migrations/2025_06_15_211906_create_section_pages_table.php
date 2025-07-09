@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('container_pages', function (Blueprint $table) {
+        Schema::create('section_pages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignId('section_id')->constrained()->cascadeOnDelete();
+            $table->json('content')->nullable();
+            $table->string('type');
             $table->timestamps();
         });
     }
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('container_pages');
+        Schema::dropIfExists('section_pages');
     }
 };

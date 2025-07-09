@@ -6,6 +6,7 @@ use Filament\Panel;
 use Filament\PanelProvider;
 use App\Filament\Auth\Login;
 use Filament\Pages\Dashboard;
+use Filament\Support\Enums\Width;
 use Filament\Support\Colors\Color;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
@@ -27,10 +28,12 @@ class DashboardPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('dashboard')
-            ->path('app')
+            ->path('/app')
             ->login()
+            ->topNavigation()
+            ->maxContentWidth(Width::ScreenTwoExtraLarge)
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => '#B70008',
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')

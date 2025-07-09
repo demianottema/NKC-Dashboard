@@ -2,12 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\Group;
-use App\Models\GroupBudgetExpense;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class GroupBudget extends Model
 {
