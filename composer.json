@@ -8,8 +8,10 @@
     "require": {
         "php": "^8.2",
         "filament/filament": "^4.0",
+        "guava/calendar": "*",
         "laravel/framework": "^11.0",
-        "laravel/tinker": "^2.10.1"
+        "laravel/tinker": "^2.10.1",
+        "webplusm/gallery-json-media": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
